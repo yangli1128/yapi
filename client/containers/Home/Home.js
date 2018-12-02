@@ -10,6 +10,8 @@ import LogoSVG from '../../components/LogoSVG/index.js';
 import { changeMenuItem } from '../../reducer/modules/menu';
 const plugin = require('client/plugin.js');
 
+const Directory='';
+
 const ThirdLogin = plugin.emitHook('third_login');
 const HomeGuest = () => (
   <div className="g-body">
@@ -50,7 +52,7 @@ const HomeGuest = () => (
                 <span className="desc">旨在为开发、产品、测试人员提供更优雅的接口管理服务</span>
               </div>
               <div className="btn-group">
-                <Link to="/login">
+                <Link to={Directory+"/login"}>
                   <Button type="primary" className="btn-home btn-login">
                     登录 / 注册
                   </Button>
@@ -366,7 +368,7 @@ class Home extends Component {
             </div>
             <div className="tip-btns">
               <div className="btn-group">
-                <Link to="/login">
+                <Link to={Directory+"/login"}>
                   <Button type="primary" className="btn-home btn-login">
                     登录 / 注册
                   </Button>

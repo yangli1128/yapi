@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { Table, Popconfirm, message, Input } from 'antd';
 import axios from 'axios';
 
+const Directory='';
 const Search = Input.Search;
 const limit = 20;
 @connect(
@@ -140,7 +141,7 @@ class List extends Component {
         key: 'username',
         width: 180,
         render: (username, item) => {
-          return <Link to={'/user/profile/' + item._id}>{item.username}</Link>;
+          return <Link to={Directory+'/user/profile/' + item._id}>{item.username}</Link>;
         }
       },
       {

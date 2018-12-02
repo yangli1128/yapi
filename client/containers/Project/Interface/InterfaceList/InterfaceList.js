@@ -15,6 +15,7 @@ import variable from '../../../../constants/variable';
 import './Edit.scss';
 import Label from '../../../../components/Label/Label.js';
 
+const Directory='';
 const Option = Select.Option;
 const limit = 20;
 
@@ -199,7 +200,7 @@ class InterfaceList extends Component {
         width: 30,
         render: (text, item) => {
           return (
-            <Link to={'/project/' + item.project_id + '/interface/api/' + item._id}>
+            <Link to={Directory+'/project/' + item.project_id + '/interface/api/' + item._id}>
               <span className="path">{text}</span>
             </Link>
           );

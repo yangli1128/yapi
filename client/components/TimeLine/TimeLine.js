@@ -16,6 +16,8 @@ import 'jsondiffpatch/dist/formatters-styles/html.css';
 import './TimeLine.scss';
 import { timeago } from '../../../common/utils.js';
 
+const Directory='';
+
 // const Option = AutoComplete.Option;
 const { Option, OptGroup } = AutoComplete;
 
@@ -182,7 +184,7 @@ class TimeTree extends Component {
         return (
           <Timeline.Item
             dot={
-              <Link to={`/user/profile/${item.uid}`}>
+              <Link to={Directory+`/user/profile/${item.uid}`}>
                 <Avatar src={`/api/user/avatar?uid=${item.uid}`} />
               </Link>
             }

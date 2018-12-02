@@ -14,6 +14,8 @@ import { checkLoginState } from './reducer/modules/user';
 import { requireAuthentication } from './components/AuthenticatedComponent';
 import Notify from './components/Notify/Notify';
 
+const Directory='';
+
 const plugin = require('client/plugin.js');
 
 const LOADING_STATUS = 0;
@@ -35,31 +37,31 @@ const alertContent = () => {
 
 let AppRoute = {
   home: {
-    path: '/',
+    path: Directory+'/',
     component: Home
   },
   group: {
-    path: '/group',
+    path: Directory+'/group',
     component: Group
   },
   project: {
-    path: '/project/:id',
+    path: Directory+'/project/:id',
     component: Project
   },
   user: {
-    path: '/user',
+    path: Directory+'/user',
     component: User
   },
   follow: {
-    path: '/follow',
+    path: Directory+'/follow',
     component: Follows
   },
   addProject: {
-    path: '/add-project',
+    path: Directory+'/add-project',
     component: AddProject
   },
   login: {
-    path: '/login',
+    path: Directory+'/login',
     component: Login
   }
 };

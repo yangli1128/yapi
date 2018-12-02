@@ -16,6 +16,8 @@ import ErrMsg from '../../../components/ErrMsg/ErrMsg.js';
 import UsernameAutoComplete from '../../../components/UsernameAutoComplete/UsernameAutoComplete.js';
 const Option = Select.Option;
 
+const Directory='';
+
 function arrayAddKey(arr) {
   return arr.map((item, index) => {
     return {
@@ -195,7 +197,7 @@ class MemberList extends Component {
         render: (text, record) => {
           return (
             <div className="m-user">
-              <Link to={`/user/profile/${record.uid}`}>
+              <Link to={Directory+`/user/profile/${record.uid}`}>
                 <img
                   src={
                     location.protocol + '//' + location.host + '/api/user/avatar?uid=' + record.uid
@@ -203,7 +205,7 @@ class MemberList extends Component {
                   className="m-user-img"
                 />
               </Link>
-              <Link to={`/user/profile/${record.uid}`}>
+              <Link to={Directory+`/user/profile/${record.uid}`}>
                 <p className="m-user-name">{text}</p>
               </Link>
             </div>

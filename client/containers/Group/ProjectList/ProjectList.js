@@ -16,6 +16,8 @@ import { setBreadcrumb } from '../../../reducer/modules/user';
 
 import './ProjectList.scss';
 
+const Directory='';
+
 @connect(
   state => {
     return {
@@ -172,7 +174,7 @@ class ProjectList extends Component {
           </Col>
           <Col span={8}>
             {isShow ? (
-              <Link to="/add-project">
+              <Link to={Directory+"/add-project"}>
                 <Button type="primary">添加项目</Button>
               </Link>
             ) : (

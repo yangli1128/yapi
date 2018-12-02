@@ -35,6 +35,8 @@ import Label from '../../../../components/Label/Label.js';
 
 const Option = Select.Option;
 
+const Directory='';
+
 import copy from 'copy-to-clipboard';
 
 function handleReport(json) {
@@ -557,7 +559,7 @@ class InterfaceColContent extends Component {
             (text, { rowData }) => {
               let record = rowData;
               return (
-                <Link to={'/project/' + currProjectId + '/interface/case/' + record._id}>
+                <Link to={Directory+'/project/' + currProjectId + '/interface/case/' + record._id}>
                   {record.casename.length > 23
                     ? record.casename.substr(0, 20) + '...'
                     : record.casename}
@@ -699,7 +701,7 @@ class InterfaceColContent extends Component {
               let record = rowData;
               return (
                 <Tooltip title="跳转到对应接口">
-                  <Link to={`/project/${record.project_id}/interface/api/${record.interface_id}`}>
+                  <Link to={Directory+`/project/${record.project_id}/interface/api/${record.interface_id}`}>
                     {record.path.length > 23 ? record.path + '...' : record.path}
                   </Link>
                 </Tooltip>

@@ -14,6 +14,8 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb.js';
 import GuideBtns from '../GuideBtns/GuideBtns.js';
 const plugin = require('client/plugin.js');
 
+const Directory='';
+
 let HeaderMenu = {
   user: {
     path: '/user/profile',
@@ -120,7 +122,7 @@ const ToolUser = props => {
       >
         <Tooltip placement="bottom" title={'我的关注'}>
           <li className="toolbar-li">
-            <Link to="/follow">
+            <Link to={Directory+"/follow"}>
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="star" />
             </Link>
           </li>
@@ -136,7 +138,7 @@ const ToolUser = props => {
       >
         <Tooltip placement="bottom" title={'新建项目'}>
           <li className="toolbar-li">
-            <Link to="/add-project">
+            <Link to={Directory+"/add-project"}>
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="plus-circle" />
             </Link>
           </li>
@@ -297,7 +299,7 @@ export default class HeaderCom extends Component {
     return (
       <Header className="header-box m-header">
         <div className="content g-row">
-          <Link onClick={this.relieveLink} to="/group" className="logo">
+          <Link onClick={this.relieveLink} to={Directory+"/group"} className="logo">
             <div className="href">
               <span className="img">
                 <LogoSVG length="32px" />

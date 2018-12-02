@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import WikiView from './View.js';
 import WikiEditor from './Editor.js';
 
+const Directory='';
+
 @connect(
   state => {
     return {
@@ -220,7 +222,7 @@ class WikiPage extends Component {
           <div className="wiki-content">
             {isConflict && (
               <div className="wiki-conflict">
-                <Link to={`/user/profile/${editUid || uid}`}>
+                <Link to={Directory+`/user/profile/${editUid || uid}`}>
                   <b>{editName || username}</b>
                 </Link>
                 <span>正在编辑该wiki，请稍后再试...</span>

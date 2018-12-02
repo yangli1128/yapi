@@ -14,6 +14,8 @@ import './Edit.scss';
 import { withRouter, Link } from 'react-router-dom';
 import ProjectTag from '../../Setting/ProjectMessage/ProjectTag.js';
 
+const Directory='';
+
 @connect(
   state => {
     return {
@@ -201,7 +203,7 @@ class InterfaceEdit extends Component {
         ) : null}
         {this.state.status === 2 ? (
           <div style={{ textAlign: 'center', fontSize: '14px', paddingTop: '10px' }}>
-            <Link to={'/user/profile/' + this.state.curdata.uid}>
+            <Link to={Directory+'/user/profile/' + this.state.curdata.uid}>
               <b>{this.state.curdata.username}</b>
             </Link>
             <span>正在编辑该接口，请稍后再试...</span>
