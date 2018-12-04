@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Table, Popconfirm, message, Input } from 'antd';
 import axios from 'axios';
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 const Search = Input.Search;
 const limit = 20;
 @connect(

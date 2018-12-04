@@ -16,7 +16,7 @@ import ErrMsg from '../../../components/ErrMsg/ErrMsg.js';
 import UsernameAutoComplete from '../../../components/UsernameAutoComplete/UsernameAutoComplete.js';
 const Option = Select.Option;
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 function arrayAddKey(arr) {
   return arr.map((item, index) => {

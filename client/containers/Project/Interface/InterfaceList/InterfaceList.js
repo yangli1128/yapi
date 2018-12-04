@@ -15,7 +15,7 @@ import variable from '../../../../constants/variable';
 import './Edit.scss';
 import Label from '../../../../components/Label/Label.js';
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 const Option = Select.Option;
 const limit = 20;
 

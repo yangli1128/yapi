@@ -35,7 +35,7 @@ import Label from '../../../../components/Label/Label.js';
 
 const Option = Select.Option;
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 import copy from 'copy-to-clipboard';
 

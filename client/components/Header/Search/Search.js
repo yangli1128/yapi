@@ -10,7 +10,7 @@ import { changeMenuItem } from '../../../reducer/modules/menu';
 
 import { fetchInterfaceListMenu } from '../../../reducer/modules/interface';
 const Option = AutoComplete.Option;
-
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 @connect(
   state => ({
     groupList: state.group.groupList,
@@ -47,7 +47,7 @@ export default class Srch extends Component {
   onSelect = async (value, option) => {
     if (option.props.type === '分组') {
       this.props.changeMenuItem('/group');
-      this.props.history.push('/group/' + option.props['id']);
+      this.props.history.push(Directory+'/group/' + option.props['id']);
       this.props.setCurrGroup({ group_name: value, _id: option.props['id'] - 0 });
     } else if (option.props.type === '项目') {
       await this.props.fetchGroupMsg(option.props['groupId']);

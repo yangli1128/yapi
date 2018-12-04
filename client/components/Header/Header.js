@@ -14,17 +14,17 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb.js';
 import GuideBtns from '../GuideBtns/GuideBtns.js';
 const plugin = require('client/plugin.js');
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 let HeaderMenu = {
   user: {
-    path: '/user/profile',
+    path: Directory+'/user/profile',
     name: '个人中心',
     icon: 'user',
     adminFlag: false
   },
   solution: {
-    path: '/user/list',
+    path: Directory+'/user/list',
     name: '用户管理',
     icon: 'solution',
     adminFlag: true

@@ -16,7 +16,7 @@ import 'jsondiffpatch/dist/formatters-styles/html.css';
 import './TimeLine.scss';
 import { timeago } from '../../../common/utils.js';
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 // const Option = AutoComplete.Option;
 const { Option, OptGroup } = AutoComplete;

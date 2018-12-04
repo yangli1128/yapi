@@ -15,8 +15,8 @@ import { autobind } from 'core-decorators';
 import { setBreadcrumb } from '../../../reducer/modules/user';
 
 import './ProjectList.scss';
-
-const Directory='';
+ 
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 @connect(
   state => {

@@ -13,6 +13,7 @@ import Loading from '../../components/Loading/Loading';
 import ProjectMember from './Setting/ProjectMember/ProjectMember.js';
 import ProjectData from './Setting/ProjectData/ProjectData.js';
 const plugin = require('client/plugin.js');
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 @connect(
   state => {
     return {
@@ -48,7 +49,7 @@ export default class Project extends Component {
     this.props.setBreadcrumb([
       {
         name: this.props.currGroup.group_name,
-        href: '/group/' + this.props.currGroup._id
+        href: Directory+'/group/' + this.props.currGroup._id
       },
       {
         name: this.props.curProject.name
@@ -65,7 +66,7 @@ export default class Project extends Component {
       this.props.setBreadcrumb([
         {
           name: this.props.currGroup.group_name,
-          href: '/group/' + this.props.currGroup._id
+          href: Directory+'/group/' + this.props.currGroup._id
         },
         {
           name: this.props.curProject.name
@@ -77,11 +78,11 @@ export default class Project extends Component {
   render() {
     const { match, location } = this.props;
     let routers = {
-      interface: { name: '接口', path: '/project/:id/interface/:action', component: Interface },
-      activity: { name: '动态', path: '/project/:id/activity', component: Activity },
-      data: { name: '数据管理', path: '/project/:id/data', component: ProjectData },
-      members: { name: '成员管理', path: '/project/:id/members', component: ProjectMember },
-      setting: { name: '设置', path: '/project/:id/setting', component: Setting }
+      interface: { name: '接口', path: Directory+'/project/:id/interface/:action', component: Interface },
+      activity: { name: '动态', path: Directory+'/project/:id/activity', component: Activity },
+      data: { name: '数据管理', path: Directory+'/project/:id/data', component: ProjectData },
+      members: { name: '成员管理', path: Directory+'/project/:id/members', component: ProjectMember },
+      setting: { name: '设置', path: Directory+'/project/:id/setting', component: Setting }
     };
 
     plugin.emitHook('sub_nav', routers);
@@ -122,7 +123,7 @@ export default class Project extends Component {
       if (key === 'interface') {
         value = {
           name: item.name,
-          path: `/project/${match.params.id}/interface/api`
+          path: `${Directory}/project/${match.params.id}/interface/api`
         };
       } else {
         value = {
@@ -147,7 +148,7 @@ export default class Project extends Component {
       <div>
         <Subnav default={defaultName} data={subnavData} />
         <Switch>
-          <Redirect exact from="/project/:id" to={`/project/${match.params.id}/interface/api`} />
+          <Redirect exact from={Directory+"/project/:id"} to={`${Directory}/project/${match.params.id}/interface/api`} />
           {/* <Route path={routers.activity.path} component={Activity} />
           
           <Route path={routers.setting.path} component={Setting} />

@@ -38,6 +38,7 @@ import { nameLengthLimit, entries, trim, htmlFilter } from '../../../../common';
 import '../Setting.scss';
 import _ from 'underscore';
 import ProjectTag from './ProjectTag.js';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 // layout
 const formItemLayout = {
   labelCol: {
@@ -133,7 +134,7 @@ class ProjectMessage extends Component {
               this.props.setBreadcrumb([
                 {
                   name: selectGroup.group_name,
-                  href: '/group/' + group_id
+                  href: Directory+'/group/' + group_id
                 },
                 {
                   name: projectName
@@ -181,7 +182,7 @@ class ProjectMessage extends Component {
           that.props.delProject(that.props.projectId).then(res => {
             if (res.payload.data.errcode == 0) {
               message.success('删除成功!');
-              that.props.history.push('/group/' + that.props.projectMsg.group_id);
+              that.props.history.push(Directory+'/group/' + that.props.projectMsg.group_id);
             }
           });
         }

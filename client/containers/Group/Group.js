@@ -12,6 +12,7 @@ const { Content, Sider } = Layout;
 const TabPane = Tabs.TabPane;
 import { fetchNewsData } from '../../reducer/modules/news.js';
 import './Group.scss';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 @connect(
   state => {
     return {
@@ -88,8 +89,8 @@ export default class Group extends Component {
     return (
       <div className="projectGround">
         <Switch>
-          <Redirect exact from="/group" to="/group/0" />
-          <Route path="/group/:groupId" render={() => GroupContent} />
+          <Redirect exact from={Directory+"/group"} to={Directory+"/group/0"} />
+          <Route path={Directory+"/group/:groupId"} render={() => GroupContent} />
         </Switch>
       </div>
     );

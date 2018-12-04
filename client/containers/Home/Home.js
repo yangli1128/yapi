@@ -10,7 +10,7 @@ import LogoSVG from '../../components/LogoSVG/index.js';
 import { changeMenuItem } from '../../reducer/modules/menu';
 const plugin = require('client/plugin.js');
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 const ThirdLogin = plugin.emitHook('third_login');
 const HomeGuest = () => (

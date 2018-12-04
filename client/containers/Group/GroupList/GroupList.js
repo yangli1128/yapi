@@ -19,7 +19,7 @@ import {
 import _ from 'underscore';
 
 import './GroupList.scss';
-
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 const tip = (
   <div className="title-container">
     <h3 className="title">欢迎使用 YApi ~</h3>
@@ -92,7 +92,7 @@ export default class GroupList extends Component {
         }
       }
     } else if (!groupId && this.props.groupList.length) {
-      this.props.history.push(`/group/${this.props.groupList[0]._id}`);
+      this.props.history.push(`${Directory}/group/${this.props.groupList[0]._id}`);
     }
     if (!currGroup) {
       currGroup = this.props.groupList[0] || { group_name: '', group_desc: '' };

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import WikiView from './View.js';
 import WikiEditor from './Editor.js';
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 @connect(
   state => {

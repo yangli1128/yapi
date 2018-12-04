@@ -14,7 +14,7 @@ import './Edit.scss';
 import { withRouter, Link } from 'react-router-dom';
 import ProjectTag from '../../Setting/ProjectMessage/ProjectTag.js';
 
-const Directory='';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 @connect(
   state => {
