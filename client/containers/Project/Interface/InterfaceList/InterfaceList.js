@@ -143,7 +143,7 @@ class InterfaceList extends Component {
       }
       message.success('接口添加成功');
       let interfaceId = res.data.data._id;
-      this.props.history.push('/project/' + data.project_id + '/interface/api/' + interfaceId);
+      this.props.history.push(Directory+'/project/' + data.project_id + '/interface/api/' + interfaceId);
       this.props.fetchInterfaceListMenu(data.project_id);
     });
   };

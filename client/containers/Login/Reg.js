@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { Form, Button, Input, Icon, message } from 'antd';
 import { regActions } from '../../reducer/modules/user';
 import { withRouter } from 'react-router';
+
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+
 const FormItem = Form.Item;
 const formItemStyle = {
   marginBottom: '.16rem'
@@ -45,7 +48,7 @@ class Reg extends Component {
       if (!err) {
         this.props.regActions(values).then(res => {
           if (res.payload.data.errcode == 0) {
-            this.props.history.replace('/group');
+            this.props.history.replace(Directory+'/group');
             message.success('注册成功! ');
           }
         });

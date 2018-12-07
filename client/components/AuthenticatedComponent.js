@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeMenuItem } from '../reducer/modules/menu';
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
 export function requireAuthentication(Component) {
   return @connect(
@@ -33,8 +34,8 @@ export function requireAuthentication(Component) {
     }
     checkAuth() {
       if (!this.props.isAuthenticated) {
-        this.props.history.push('/');
-        this.props.changeMenuItem('/');
+        this.props.history.push(Directory+'/');
+        this.props.changeMenuItem(Directory+'/');
       }
     }
     render() {

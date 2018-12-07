@@ -16,6 +16,8 @@ import { Postman } from '../../../../components';
 
 import './InterfaceCaseContent.scss';
 
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+
 @connect(
   state => {
     return {
@@ -83,7 +85,7 @@ export default class InterfaceCaseContent extends Component {
     const { actionId } = params;
     currCaseId = +actionId || +currCaseId || result.payload.data.data[0].caseList[0]._id;
     let currColId = this.getColId(result.payload.data.data, currCaseId);
-    this.props.history.push('/project/' + params.id + '/interface/case/' + currCaseId);
+    this.props.history.push(Directory+'/project/' + params.id + '/interface/case/' + currCaseId);
     await this.props.fetchCaseData(currCaseId);
     this.props.setColData({ currCaseId: +currCaseId, currColId, isShowCol: false });
     // 获取当前case 下的环境变量

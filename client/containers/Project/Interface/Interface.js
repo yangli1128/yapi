@@ -16,8 +16,11 @@ import InterfaceColContent from './InterfaceCol/InterfaceColContent.js';
 import InterfaceCaseContent from './InterfaceCol/InterfaceCaseContent.js';
 import { getProject } from '../../../reducer/modules/project';
 import { setColData } from '../../../reducer/modules/interfaceCol.js';
+
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+
 const contentRouter = {
-  path: '/project/:id/interface/:action/:actionId',
+  path: Directory+'/project/:id/interface/:action/:actionId',
   exact: true
 };
 
@@ -77,7 +80,7 @@ class Interface extends Component {
     if (action === 'colOrCase') {
       action = this.props.isShowCol ? 'col' : 'case';
     }
-    this.props.history.push('/project/' + params.id + '/interface/' + action);
+    this.props.history.push(Directory+'/project/' + params.id + '/interface/' + action);
   };
   async componentWillMount() {
     this.props.setColData({

@@ -4,6 +4,7 @@ import { Icon } from 'antd';
 import './ErrMsg.scss';
 import { withRouter } from 'react-router';
 
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 /**
  * 错误信息提示
  *
@@ -47,7 +48,7 @@ class ErrMsg extends Component {
           title = '你还没有关注项目呢';
           desc = (
             <span>
-              先去 <a onClick={() => this.props.history.push('/group')}>“项目广场”</a> 逛逛吧,
+              先去 <a onClick={() => this.props.history.push(Directory+'/group')}>“项目广场”</a> 逛逛吧,
               那里可以添加关注。
             </span>
           );

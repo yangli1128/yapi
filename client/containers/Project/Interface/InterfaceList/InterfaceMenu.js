@@ -20,7 +20,7 @@ import produce from 'immer';
 import { arrayChangeIndex } from '../../../../common.js';
 
 import './interfaceMenu.scss';
-
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 const confirm = Modal.confirm;
 const TreeNode = Tree.TreeNode;
 const headHeight = 240; // menu顶部到网页顶部部分的高度
@@ -128,7 +128,7 @@ class InterfaceMenu extends Component {
     if (!curkey || !selectedKeys) {
       return false;
     }
-    let basepath = '/project/' + match.params.id + '/interface/api';
+    let basepath = Directory+'/project/' + match.params.id + '/interface/api';
     if (curkey === 'root') {
       history.push(basepath);
     } else {
@@ -153,7 +153,7 @@ class InterfaceMenu extends Component {
       }
       message.success('接口添加成功');
       let interfaceId = res.data.data._id;
-      this.props.history.push('/project/' + this.props.projectId + '/interface/api/' + interfaceId);
+      this.props.history.push(Directory+'/project/' + this.props.projectId + '/interface/api/' + interfaceId);
       this.getList();
       this.setState({
         visible: false
@@ -216,7 +216,7 @@ class InterfaceMenu extends Component {
         await that.props.fetchInterfaceCatList({ catid });
         ref.destroy();
         that.props.history.push(
-          '/project/' + that.props.match.params.id + '/interface/api/cat_' + catid
+          Directory+'/project/' + that.props.match.params.id + '/interface/api/cat_' + catid
         );
       },
       onCancel() {
@@ -237,7 +237,7 @@ class InterfaceMenu extends Component {
         await that.getList();
         // await that.props.getProject(that.props.projectId)
         await that.props.fetchInterfaceList({ project_id: that.props.projectId });
-        that.props.history.push('/project/' + that.props.match.params.id + '/interface/api');
+        that.props.history.push(Directory+'/project/' + that.props.match.params.id + '/interface/api');
         ref.destroy();
       },
       onCancel() {}
@@ -262,7 +262,7 @@ class InterfaceMenu extends Component {
       message.success('接口添加成功');
       let interfaceId = res.data.data._id;
       await this.getList();
-      this.props.history.push('/project/' + this.props.projectId + '/interface/api/' + interfaceId);
+      this.props.history.push(Directory+'/project/' + this.props.projectId + '/interface/api/' + interfaceId);
       this.setState({
         visible: false
       });
@@ -569,7 +569,7 @@ class InterfaceMenu extends Component {
                             e.stopPropagation();
                             this.changeExpands();
                           }}
-                          to={'/project/' + matchParams.id + '/interface/api/cat_' + item._id}
+                          to={Directory+'/project/' + matchParams.id + '/interface/api/cat_' + item._id}
                         >
                           <Icon type="folder-open" style={{ marginRight: 5 }} />
                           {item.name}

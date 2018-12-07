@@ -11,7 +11,7 @@ import produce from 'immer';
 import { getProject, checkProjectName, copyProjectMsg } from '../../reducer/modules/project';
 import { trim } from '../../common.js';
 const confirm = Modal.confirm;
-
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 @connect(
   state => {
     return {
@@ -137,7 +137,7 @@ class ProjectCard extends Component {
           bordered={false}
           className="m-card"
           onClick={() =>
-            this.props.history.push('/project/' + (projectData.projectid || projectData._id))
+            this.props.history.push(Directory+'/project/' + (projectData.projectid || projectData._id))
           }
         >
           <Icon

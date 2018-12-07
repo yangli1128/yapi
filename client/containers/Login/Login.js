@@ -6,7 +6,7 @@ import { loginActions, loginLdapActions } from '../../reducer/modules/user';
 import { withRouter } from 'react-router';
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
-
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 import './Login.scss';
 
 const formItemStyle = {
@@ -54,14 +54,14 @@ class Login extends Component {
         if (this.props.isLDAP && this.state.loginType === 'ldap') {
           this.props.loginLdapActions(values).then(res => {
             if (res.payload.data.errcode == 0) {
-              this.props.history.replace('/group');
+              this.props.history.replace(Directory+'/group');
               message.success('登录成功! ');
             }
           });
         } else {
           this.props.loginActions(values).then(res => {
             if (res.payload.data.errcode == 0) {
-              this.props.history.replace('/group');
+              this.props.history.replace(Directory+'/group');
               message.success('登录成功! ');
             }
           });

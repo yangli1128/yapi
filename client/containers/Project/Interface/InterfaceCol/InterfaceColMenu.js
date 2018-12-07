@@ -19,6 +19,8 @@ const FormItem = Form.Item;
 const confirm = Modal.confirm;
 const headHeight = 240; // menu顶部到网页顶部部分的高度
 
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+
 import './InterfaceColMenu.scss';
 
 const ColModalForm = Form.create()(props => {
@@ -154,12 +156,12 @@ export default class InterfaceColMenu extends Component {
         this.props.setColData({
           isRander: false
         });
-        this.props.history.push('/project/' + project_id + '/interface/col/' + id);
+        this.props.history.push(Directory+'/project/' + project_id + '/interface/col/' + id);
       } else {
         this.props.setColData({
           isRander: false
         });
-        this.props.history.push('/project/' + project_id + '/interface/case/' + id);
+        this.props.history.push(Directory+'/project/' + project_id + '/interface/case/' + id);
       }
     }
     this.setState({
@@ -182,7 +184,7 @@ export default class InterfaceColMenu extends Component {
           const result = await that.getList();
           const nextColId = result.payload.data.data[0]._id;
 
-          that.props.history.push('/project/' + params.id + '/interface/col/' + nextColId);
+          that.props.history.push(Directory+'/project/' + params.id + '/interface/col/' + nextColId);
         } else {
           message.error(res.data.errmsg);
         }
@@ -251,7 +253,7 @@ export default class InterfaceColMenu extends Component {
           that.getList();
           // 如果删除当前选中 case，切换路由到集合
           if (+caseId === +that.props.currCaseId) {
-            that.props.history.push('/project/' + params.id + '/interface/col/');
+            that.props.history.push(Directory+'/project/' + params.id + '/interface/col/');
           } else {
             // that.props.fetchInterfaceColList(that.props.match.params.id);
             that.props.setColData({ isRander: true });

@@ -15,6 +15,8 @@ import constants from '../../constants/variable.js';
 import { withRouter } from 'react-router';
 import './Addproject.scss';
 
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+
 const formItemLayout = {
   labelCol: {
     lg: { span: 3 },
@@ -82,7 +84,7 @@ class ProjectList extends Component {
           if (res.payload.data.errcode == 0) {
             form.resetFields();
             message.success('创建成功! ');
-            this.props.history.push('/project/' + res.payload.data.data._id + '/interface/api');
+            this.props.history.push(Directory+'/project/' + res.payload.data.data._id + '/interface/api');
           }
         });
       }
