@@ -8,7 +8,10 @@
 <title>YApi-高效、易用、功能强大的可视化接口管理平台</title>
 <link rel="icon" type="image/png" sizes="192x192" href="/image/favicon.png">
 <script>
-    localStorage.setItem('directory', '{"dir":""}');
+    if(localStorage.getItem('directory')==null)
+    {
+        localStorage.setItem('directory', '{"dir":""}');
+    }
     document.write('<script src="/prd/assets.js?v=' + Math.random() + '"><\/script>');
 </script>
 
