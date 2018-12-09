@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="http://127.0.0.1:4000/prd/index@dev.css">
 </head>
 <body>
+<script>
+    if(localStorage.getItem('directory')==null)
+    {
+        localStorage.setItem('directory', '{"dir":""}');
+    }
+</script>
 <div id="yapi" style="height: 100%;"></div>
 
 <script src="http://127.0.0.1:4000/prd/manifest@dev.js"></script>

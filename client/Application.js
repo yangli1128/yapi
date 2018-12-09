@@ -14,7 +14,10 @@ import { checkLoginState } from './reducer/modules/user';
 import { requireAuthentication } from './components/AuthenticatedComponent';
 import Notify from './components/Notify/Notify';
 const axios = require('axios');
-localStorage.setItem('directory', '{"dir":""}');
+if(localStorage.getItem('directory')==null)
+{
+    localStorage.setItem('directory', '{"dir":""}');
+}
 let a =async () => {
 
   await axios.get('/prd/directory.json').then(response => {
