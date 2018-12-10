@@ -13,20 +13,6 @@ import MyPopConfirm from './components/MyPopConfirm/MyPopConfirm';
 import { checkLoginState } from './reducer/modules/user';
 import { requireAuthentication } from './components/AuthenticatedComponent';
 import Notify from './components/Notify/Notify';
-const axios = require('axios');
-if(localStorage.getItem('directory')==null)
-{
-    localStorage.setItem('directory', '{"dir":""}');
-}
-let a =async () => {
-
-  await axios.get('/prd/directory.json').then(response => {
-    localStorage.setItem('directory', JSON.stringify(response.data))
-    console.log(response.data);
-    
-  });
- 
-}
 
 const plugin = require('client/plugin.js');
 
@@ -46,12 +32,9 @@ const alertContent = () => {
     );
   }
 };
-let AppRoute ={};
-a().then(()=>{
-  console.log('dir:'+JSON.parse(localStorage.getItem('directory')).dir);
-  const Directory=JSON.parse(localStorage.getItem('directory')).dir;
+const Directory=JSON.parse(localStorage.getItem('directory')).dir;
 
-AppRoute = {
+let AppRoute = {
   home: {
     path: Directory+'/',
     component: Home
@@ -83,7 +66,7 @@ AppRoute = {
 };
 // 增加路由钩子
 plugin.emitHook('app_route', AppRoute);
-});
+
 @connect(
   state => {
     return {
