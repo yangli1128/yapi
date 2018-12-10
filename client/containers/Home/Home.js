@@ -342,7 +342,7 @@ class Home extends Component {
 
   componentWillMount() {
     if (this.props.login) {
-      this.props.history.push('/group/261');
+      this.props.history.push(Directory+'/group/261');
     }
   }
 

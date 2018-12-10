@@ -11,9 +11,10 @@
 </head>
 <body>
 <script>
-    if(localStorage.getItem('directory')==null)
+   if(localStorage.getItem('directory')==null)
     {
-        localStorage.setItem('directory', '{"dir":""}');
+		var dir='';
+        localStorage.setItem('directory', '{"dir":"'+dir+'"}');
     }
 </script>
 <div id="yapi" style="height: 100%;"></div>
