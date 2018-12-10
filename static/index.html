@@ -10,7 +10,8 @@
 <script>
     if(localStorage.getItem('directory')==null)
     {
-        localStorage.setItem('directory', '{"dir":""}');
+		var dir='';
+        localStorage.setItem('directory', '{"dir":"'+dir+'"}');
     }
     document.write('<script src="/prd/assets.js?v=' + Math.random() + '"><\/script>');
 </script>
